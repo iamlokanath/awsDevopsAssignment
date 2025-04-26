@@ -20,7 +20,7 @@ Detailed documentation for AWS resources setup is available in [docs/task1_aws.m
    - Public access configuration
    - **S3 Endpoint URL**: [http://devops-assignment-lokanath.s3-website-us-east-1.amazonaws.com/](http://devops-assignment-lokanath.s3-website-us-east-1.amazonaws.com/)
    - Screenshot:
-     ![S3 Bucket Configuration](screenshots/s3-bucket-config.png)
+     ![S3 Bucket Configuration](screenshots/sample.png)
 
 2. **EC2 Instance**
 
@@ -29,14 +29,12 @@ Detailed documentation for AWS resources setup is available in [docs/task1_aws.m
    - Simple HTML page hosting
    - **EC2 Public URL**: [http://52.202.214.202/](http://52.202.214.202/) (Note: This link will only work when the EC2 instance is running)
    - Screenshot:
-     ![EC2 Web Server](screenshots/ec2-webserver.png)
+     ![EC2 Web Server](screenshots/web%20server.png)
 
 3. **Security Group Configuration**
 
    - HTTP traffic allowance
    - IP restriction for security
-   - Screenshot:
-     ![Security Group Configuration](screenshots/security-group-config.png)
 
 4. **AWS Lambda**
    - S3 event-triggered function
@@ -54,7 +52,7 @@ Python scripts that utilize AWS SDK (boto3) to:
    - Displays object count in a specified bucket
    - Usage: `python scripts/list_s3_buckets.py --bucket <bucket-name>`
    - Screenshot:
-     ![Lambda Function Configuration](screenshots/S3Bucket.png) 
+     ![List S3 and Display Object](screenshots/S3Bucket.png) 
 
 2. **csv_analyzer.py**
 
@@ -62,7 +60,7 @@ Python scripts that utilize AWS SDK (boto3) to:
    - Prints students with grades above a threshold
    - Usage: `python scripts/csv_analyzer.py scripts/sample_students.csv --threshold 80`
    - Screenshot:
-     ![Lambda Function Configuration](screenshots/Csv.png) 
+     ![Print Students with Grade](screenshots/Csv.png) 
 
 3. **SDK Documentation References**
    - See [docs/sdk_documentation.md](docs/sdk_documentation.md) for links to the AWS SDK documentation
@@ -75,6 +73,8 @@ GitHub Actions workflow configured to:
 2. Validate Terraform configurations
 3. Build and package Lambda functions
 4. Deploy to AWS (when configured)
+   - Screenshot:
+     ![Pipe Line CI/CD](screenshots/pipeline.png) 
 
 ## Task 4: Infrastructure as Code
 
