@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS DevOps Assignment Screenshots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #232f3e;
+            text-align: center;
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 10px;
+        }
+
+        .screenshot-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .screenshot {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .screenshot h2 {
+            color: #232f3e;
+            margin-top: 0;
+        }
+
+        .screenshot img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+            border: 1px solid #eee;
+        }
+
+        .screenshot p {
+            color: #444;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AWS DevOps Assignment Screenshots</h1>
+
+    <div class="screenshot-container">
+        <div class="screenshot">
+            <h2>S3 Bucket Configuration</h2>
+            <img src="s3-bucket-config.png" alt="S3 Bucket Configuration Screenshot">
+            <p>Configuration of S3 bucket for static website hosting with public access enabled.</p>
+        </div>
+
+        <div class="screenshot">
+            <h2>EC2 Web Server</h2>
+            <img src="ec2-webserver.png" alt="EC2 Web Server Screenshot">
+            <p>EC2 instance running Apache web server with a simple HTML page.</p>
+        </div>
+
+        <div class="screenshot">
+            <h2>Security Group Configuration</h2>
+            <img src="security-group-config.png" alt="Security Group Configuration Screenshot">
+            <p>Security group configuration with IP restrictions for HTTP and SSH traffic.</p>
+        </div>
+
+        <div class="screenshot">
+            <h2>Lambda Function Configuration</h2>
+            <img src="lambda-function.png" alt="Lambda Function Configuration Screenshot">
+            <p>AWS Lambda function configured to log S3 bucket events to CloudWatch.</p>
+        </div>
+    </div>
+</body>
+
+</html>
