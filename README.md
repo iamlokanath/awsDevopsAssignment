@@ -39,9 +39,7 @@ Detailed documentation for AWS resources setup is available in [docs/task1_aws.m
 4. **AWS Lambda**
    - S3 event-triggered function
    - CloudWatch logging integration
-   - Screenshot:
-     ![Lambda Function Configuration](screenshots/lambda-function.png) 
-
+     
 ## Task 2: Scripting
 
 Python scripts that utilize AWS SDK (boto3) to:
