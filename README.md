@@ -20,7 +20,7 @@ Detailed documentation for AWS resources setup is available in [docs/task1_aws.m
    - Public access configuration
    - **S3 Endpoint URL**: [http://devops-assignment-lokanath.s3-website-us-east-1.amazonaws.com/](http://devops-assignment-lokanath.s3-website-us-east-1.amazonaws.com/)
    - Screenshot:
-     ![S3 Bucket Configuration](screenshots/s3-bucket-config.png)
+     ![S3 Bucket Configuration](screenshots/sample.png)
 
 2. **EC2 Instance**
 
@@ -29,14 +29,12 @@ Detailed documentation for AWS resources setup is available in [docs/task1_aws.m
    - Simple HTML page hosting
    - **EC2 Public URL**: [http://52.202.214.202/](http://52.202.214.202/) (Note: This link will only work when the EC2 instance is running)
    - Screenshot:
-     ![EC2 Web Server](screenshots/ec2-webserver.png)
+     ![EC2 Web Server](screenshots/web%20server.png)
 
 3. **Security Group Configuration**
 
    - HTTP traffic allowance
    - IP restriction for security
-   - Screenshot:
-     ![Security Group Configuration](screenshots/security-group-config.png)
 
 4. **AWS Lambda**
    - S3 event-triggered function
