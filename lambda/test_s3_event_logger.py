@@ -5,8 +5,7 @@ Test file for s3_event_logger.py Lambda function
 
 import json
 import unittest
-import logging
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from s3_event_logger import lambda_handler
 
 class TestS3EventLogger(unittest.TestCase):
@@ -64,8 +63,13 @@ class TestS3EventLogger(unittest.TestCase):
         result = lambda_handler(self.event, self.context)
         
         # Check that logger.info was called with the expected arguments
-        mock_logger.info.assert_any_call('Received S3 event: ' + json.dumps(self.event))
-        mock_logger.info.assert_any_call('Event: ObjectCreated:Put, Bucket: test-bucket, Key: test-object.txt')
+        mock_logger.info.assert_any_call('Received S3 event: %s', json.dumps(self.event))
+        mock_logger.info.assert_any_call(
+            'Event: %s, Bucket: %s, Key: %s',
+            'ObjectCreated:Put',
+            'test-bucket',
+            'test-object.txt'
+        )
         
         # Verify the return structure
         self.assertEqual(result['statusCode'], 200)
@@ -80,7 +84,7 @@ class TestS3EventLogger(unittest.TestCase):
         result = lambda_handler(empty_event, self.context)
         
         # Check logger.info was called with the event but not with details
-        mock_logger.info.assert_called_with('Received S3 event: ' + json.dumps(empty_event))
+        mock_logger.info.assert_called_with('Received S3 event: %s', json.dumps(empty_event))
         
         # Verify the function completed successfully
         self.assertEqual(result['statusCode'], 200)
@@ -105,10 +109,10 @@ class TestS3EventLogger(unittest.TestCase):
         result = lambda_handler(event_missing_fields, self.context)
         
         # Check that logger.info was called with "unknown" for missing fields
-        mock_logger.info.assert_any_call('Event: ObjectCreated:Put, Bucket: unknown, Key: unknown')
+        mock_logger.info.assert_any_call('Event: %s, Bucket: %s, Key: %s', 'ObjectCreated:Put', 'unknown', 'unknown')
         
         # Verify the function completed successfully
         self.assertEqual(result['statusCode'], 200)
 
 if __name__ == '__main__':
-    unittest.main() 
+    unittest.main()  

@@ -25,7 +25,7 @@ def analyze_csv(file_path, threshold):
         
         # Read the CSV file
         students = []
-        with open(file_path, 'r', newline='') as csvfile:
+        with open(file_path, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.reader(csvfile)
             # Skip header if it exists (we'll check first row)
             header = next(reader, None)
@@ -48,14 +48,14 @@ def analyze_csv(file_path, threshold):
         above_threshold = [student for student in students if student['grade'] > threshold]
         
         # Print results
-        print(f"\nCSV Analysis Results:")
-        print(f"=====================")
+        print("\nCSV Analysis Results:")
+        print("=====================")
         print(f"File: {file_path}")
         print(f"Total students: {len(students)}")
         print(f"Average grade: {avg_grade:.2f}")
         print(f"Threshold: {threshold}")
         print(f"\nStudents with grade above {threshold}:")
-        print(f"--------------------------------------")
+        print("--------------------------------------")
         
         if above_threshold:
             # Sort by grade in descending order
@@ -65,8 +65,20 @@ def analyze_csv(file_path, threshold):
         else:
             print("No students found with grade above the threshold.")
         
-    except Exception as e:
-        print(f"Error analyzing CSV: {e}")
+    except FileNotFoundError as e:
+        print(f"File not found error: {e}")
+        sys.exit(1)
+    except csv.Error as e:
+        print(f"CSV parsing error: {e}")
+        sys.exit(1)
+    except ValueError as e:
+        print(f"Value error: {e}")
+        sys.exit(1)
+    except IOError as e:
+        print(f"I/O error: {e}")
+        sys.exit(1)
+    except Exception as e:  # pylint: disable=W0718
+        print(f"Unexpected error analyzing CSV: {e}")
         sys.exit(1)
 
 def process_row(row):
@@ -113,4 +125,4 @@ def main():
     analyze_csv(args.file, args.threshold)
 
 if __name__ == "__main__":
-    main() 
+    main()   
