@@ -74,7 +74,7 @@ GitHub Actions workflow configured to:
 3. Build and package Lambda functions
 4. Deploy to AWS (when configured)
    - Screenshot:
-     ![Pipe Line CI/CD](screenshots/Csv.png) 
+     ![Pipe Line CI/CD](screenshots/pipeline.png) 
 
 ## Task 4: Infrastructure as Code
 
