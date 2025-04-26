@@ -52,7 +52,7 @@ Python scripts that utilize AWS SDK (boto3) to:
    - Displays object count in a specified bucket
    - Usage: `python scripts/list_s3_buckets.py --bucket <bucket-name>`
    - Screenshot:
-     ![Lambda Function Configuration](screenshots/S3Bucket.png) 
+     ![List S3 and Display Object](screenshots/S3Bucket.png) 
 
 2. **csv_analyzer.py**
 
@@ -60,7 +60,7 @@ Python scripts that utilize AWS SDK (boto3) to:
    - Prints students with grades above a threshold
    - Usage: `python scripts/csv_analyzer.py scripts/sample_students.csv --threshold 80`
    - Screenshot:
-     ![Lambda Function Configuration](screenshots/Csv.png) 
+     ![Print Students with Grade](screenshots/Csv.png) 
 
 3. **SDK Documentation References**
    - See [docs/sdk_documentation.md](docs/sdk_documentation.md) for links to the AWS SDK documentation
@@ -73,6 +73,8 @@ GitHub Actions workflow configured to:
 2. Validate Terraform configurations
 3. Build and package Lambda functions
 4. Deploy to AWS (when configured)
+   - Screenshot:
+     ![Pipe Line CI/CD](screenshots/Csv.png) 
 
 ## Task 4: Infrastructure as Code
 
