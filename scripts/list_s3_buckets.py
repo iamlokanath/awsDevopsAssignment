@@ -6,7 +6,6 @@ Script to interact with AWS S3 using boto3:
 """
 
 import argparse
-import sys
 import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
 
@@ -24,12 +23,13 @@ def list_all_buckets():
         print("-" * 40)
         if not response['Buckets']:
             print("No buckets found.")
-            return
+            return True
         
         for i, bucket in enumerate(response['Buckets'], 1):
             print(f"{i}. {bucket['Name']} (Created: {bucket['CreationDate']})")
             
         print(f"\nTotal buckets: {len(response['Buckets'])}")
+        return True
     
     except ClientError as e:
         error_code = e.response.get('Error', {}).get('Code', 'Unknown')
@@ -46,8 +46,6 @@ def list_all_buckets():
     except Exception as e:  # pylint: disable=W0718
         print(f"Unexpected error listing buckets: {e}")
         return False
-    
-    return True
 
 def count_objects_in_bucket(bucket_name):
     """Count objects in a specified S3 bucket"""
@@ -75,6 +73,7 @@ def count_objects_in_bucket(bucket_name):
             
         print(f"Total objects: {total_objects}")
         print(f"Total size: {size_str}")
+        return True
     
     except ClientError as e:
         error_code = e.response.get('Error', {}).get('Code', 'Unknown')
@@ -85,11 +84,14 @@ def count_objects_in_bucket(bucket_name):
         print("- The bucket doesn't exist")
         print("- You don't have permission to access this bucket")
         print("- Your AWS credentials are invalid or expired")
+        return False
     except NoCredentialsError:
         print("Error: No AWS credentials found. Please configure AWS credentials.")
         print("Run 'aws configure' to set up your credentials.")
+        return False
     except Exception as e:  # pylint: disable=W0718
         print(f"Unexpected error counting objects: {e}")
+        return False
 
 def format_size(size_bytes):
     """Format bytes to a human-readable size"""
