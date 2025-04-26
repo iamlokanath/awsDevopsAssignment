@@ -42,7 +42,7 @@ Detailed documentation for AWS resources setup is available in [docs/task1_aws.m
    - S3 event-triggered function
    - CloudWatch logging integration
    - Screenshot:
-     ![Lambda Function Configuration](screenshots/lambda-function.png)
+     ![Lambda Function Configuration](screenshots/lambda-function.png) 
 
 ## Task 2: Scripting
 
@@ -53,12 +53,16 @@ Python scripts that utilize AWS SDK (boto3) to:
    - Lists all S3 buckets in your AWS account
    - Displays object count in a specified bucket
    - Usage: `python scripts/list_s3_buckets.py --bucket <bucket-name>`
+   - Screenshot:
+     ![Lambda Function Configuration](screenshots/S3Bucket.png) 
 
 2. **csv_analyzer.py**
 
    - Analyzes a CSV file (name, age, grade)
    - Prints students with grades above a threshold
    - Usage: `python scripts/csv_analyzer.py scripts/sample_students.csv --threshold 80`
+   - Screenshot:
+     ![Lambda Function Configuration](screenshots/Csv.png) 
 
 3. **SDK Documentation References**
    - See [docs/sdk_documentation.md](docs/sdk_documentation.md) for links to the AWS SDK documentation
