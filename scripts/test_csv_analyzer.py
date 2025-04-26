@@ -5,20 +5,18 @@ Test file for csv_analyzer.py
 
 import os
 import sys
-import tempfile
-from pathlib import Path
 
 # Add the parent directory to sys.path so we can import the module
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from scripts.csv_analyzer import process_row, is_numeric
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from csv_analyzer import process_row, is_numeric  # pylint: disable=C0413
 
 def test_is_numeric():
     """Test the is_numeric function"""
-    assert is_numeric("123") == True
-    assert is_numeric("123.45") == True
-    assert is_numeric("-123.45") == True
-    assert is_numeric("abc") == False
-    assert is_numeric("") == False
+    assert is_numeric("123") is True
+    assert is_numeric("123.45") is True
+    assert is_numeric("-123.45") is True
+    assert is_numeric("abc") is False
+    assert is_numeric("") is False
 
 def test_process_row():
     """Test the process_row function"""
@@ -50,4 +48,4 @@ def test_process_row_with_invalid_data():
     result = process_row(row)
     assert result["name"] == "Bob Smith"
     assert result["age"] == 20
-    assert result["grade"] == 0.0  # Should default to 0.0 
+    assert result["grade"] == 0.0  # Should default to 0.0   
