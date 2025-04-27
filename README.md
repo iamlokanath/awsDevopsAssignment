@@ -2,6 +2,10 @@
 
 This repository contains solutions for the AWS DevOps assignment including infrastructure as code, scripting, and CI/CD pipeline.
 
+## Demo Video
+
+Check out the [demo video](https://drive.google.com/file/d/1YglhKKMlZwaZquZ8puK9CHa40vxxUr0s/view) to see the application in action.
+
 ## Project Structure
 
 - `/terraform` - Contains Terraform configuration files for infrastructure provisioning
